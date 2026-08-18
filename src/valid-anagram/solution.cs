@@ -7,7 +7,7 @@ bool ValidAnagram(string s, string t)
 		return false;
 	}
 
-	foreach(char c in s)
+	foreach(var c in s)
 	{
 		if (characters.TryGetValue(c, out var value))
 		{
@@ -19,7 +19,7 @@ bool ValidAnagram(string s, string t)
 		}
 	}
 
-	foreach(char c in t)
+	foreach(var c in t)
 	{
 		if (characters.TryGetValue(c, out var value))
 		{
@@ -44,7 +44,7 @@ bool ValidAnagram(string s, string t)
 
 void Check(string s, string t, bool expected)
 {
-	bool result = ValidAnagram(s, t);
+	var result = ValidAnagram(s, t);
 	if (result != expected) {
 		throw new Exception($"Test failed: got {result}, expected {expected}");
 	}

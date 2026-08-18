@@ -1,0 +1,20 @@
+<!--
+  This project exists ONLY so Rider/IntelliJ can index the C# solution files
+  and offer autoimport, IntelliSense, and navigation.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <NoWarn>$(NoWarn);CS8802</NoWarn>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="./**/solution.cs" />
+  </ItemGroup>
+
+</Project>
