@@ -51,5 +51,5 @@ void Check(string s, string t, bool expected)
 }
 
 Check("racecar", "eracrac", true);
-Check("eiufhdoufh", "siucgsidgco", false)
+Check("eiufhdoufh", "siucgsidgco", false);
 Console.WriteLine("All tests passed.");
