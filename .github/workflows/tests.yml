@@ -1,0 +1,59 @@
+name: Run Solutions
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run all Python solutions
+        run: |
+          find . -name "solution.py" -print -exec python3 {} \;
+
+  javascript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Run all JavaScript solutions
+        run: |
+          find . -name "solution.js" -print -exec node {} \;
+
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - name: Run all Go solutions
+        run: |
+          find . -name "solution.go" | while read -r f; do
+            echo "Running $f"
+            go run "$f"
+          done
+
+  csharp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Install dotnet-script
+        run: dotnet tool install -g dotnet-script
+      - name: Run all C# solutions
+        run: |
+          export PATH="$PATH:$HOME/.dotnet/tools"
+          find . -name "solution.cs" | while read -r f; do
+            echo "Running $f"
+            dotnet script "$f"
+          done
