@@ -3,6 +3,19 @@ double MedianOfTwoSortedArrays(int[] nums1, int[] nums2)
     int m = nums1.Length;
     int n = nums2.Length;
 
+    if (m + n == 1)
+    {
+        if (m > 0)
+        {
+            return nums1[0];
+        }
+
+        if (n > 0)
+        {
+            return nums2[0];
+        }
+    }
+
     int i = 0;
     int j = 0;
 
@@ -34,7 +47,7 @@ double MedianOfTwoSortedArrays(int[] nums1, int[] nums2)
         }
     }
 
-    if (average % 2 != 0)
+    if ((m + n) % 2 != 0)
     {
         // Odd so we only need the middle element
         return mid1;
@@ -54,7 +67,10 @@ void Check(int[] nums1, int[] nums2, double expected)
     }
 }
 
+Check([], [1], 1.0);
+Check([2], [], 2.0);
 Check([1, 2], [3, 4], 2.5);
 Check([1, 3], [2], 2.0);
 Check([73], [20, 89, 100], 81.0);
+Check([1,2,3,4,5], [6,7,8,9,10,11,12,13,14,15,16,17], 9);
 Console.WriteLine("All checks passed.");
