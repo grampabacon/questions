@@ -4,8 +4,6 @@
 #
 # Usage:
 #   ./scripts/run.sh two-sum/
-#
-# Skips a language silently if that toolchain isn't installed locally.
 
 set -uo pipefail
 
@@ -66,6 +64,12 @@ else
   [ -f "$TARGET/solution.js" ] && echo "(skipping JavaScript — node not found)"
 fi
 
+if command -v tsx >/dev/null 2>&1; then
+  run_one "TypeScript" "tsx" "$TARGET/solution.ts"
+else
+  [ -f "$TARGET/solution.ts" ] && echo "(skipping TypeScript — tsx not found; install with: npm install -g tsx)"
+fi
+
 if command -v go >/dev/null 2>&1; then
   run_one "Go" "go run" "$TARGET/solution.go"
 else
@@ -76,6 +80,12 @@ if command -v dotnet-script >/dev/null 2>&1; then
   run_one "C#" "dotnet-script" "$TARGET/solution.cs"
 elif [ -f "$TARGET/solution.cs" ]; then
   echo "(skipping C# — dotnet-script not found; install with: dotnet tool install -g dotnet-script)"
+fi
+
+if command -v java >/dev/null 2>&1; then
+  run_one "Java" "java" "$TARGET/solution.java"
+else
+  [ -f "$TARGET/solution.java" ] && echo "(skipping Java — java not found)"
 fi
 
 echo ""

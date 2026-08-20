@@ -27,6 +27,22 @@ jobs:
         run: |
           find . -name "solution.js" -print -exec node {} \;
 
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+      - name: Install tsx
+        run: npm install -g tsx
+      - name: Run all TypeScript solutions
+        run: |
+          find . -name "solution.ts" | while read -r f; do
+            echo "Running $f"
+            tsx "$f"
+          done
+
   go:
     runs-on: ubuntu-latest
     steps:
@@ -56,4 +72,18 @@ jobs:
           find . -name "solution.cs" | while read -r f; do
             echo "Running $f"
             dotnet script "$f"
+          done
+  java:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v5
+        with:
+          distribution: "temurin"
+          java-version: "25"
+      - name: Run all Java solutions
+        run: |
+          find . -name "solution.java" | while read -r f; do
+            echo "Running $f"
+            java "$f"
           done

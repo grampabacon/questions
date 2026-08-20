@@ -45,10 +45,12 @@ run_group() {
 echo "Running all solutions in $REPO_ROOT"
 echo "===================================="
 
-run_group "Python"     "solution.py" "python3"       "python3"
-run_group "JavaScript" "solution.js" "node"          "node"
-run_group "Go"         "solution.go" "go run"        "go"
-run_group "C#"         "solution.cs" "dotnet-script" "dotnet-script"
+run_group "Python"     "solution.py"   "python3"       "python3"
+run_group "JavaScript" "solution.js"   "node"          "node"
+run_group "TypeScript" "solution.ts"   "tsx"           "tsx"
+run_group "Go"         "solution.go"   "go run"        "go"
+run_group "C#"         "solution.cs"   "dotnet-script" "dotnet-script"
+run_group "Java"       "solution.java" "java"          "java"
 
 echo ""
 echo "===================================="
