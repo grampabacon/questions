@@ -1,22 +1,27 @@
 bool IsMatch(string s, string p)
 {
-    // Break up string into individual rules.
-    List<string> rules = [];
-    for (var i = 0; i < p.Length; i++)
+    bool Match(int i, int j)
     {
-        var c = p[i];
-        if (c == char.Parse("*"))
+        if (j == p.Length)
         {
-            rules[^1] += "*";
-            continue;
+            return i == s.Length;
         }
 
-        rules.Add(c.ToString());
+        var firstMatch = i < s.Length && (s[i] == p[j] || p[j] == '.');
+
+        if (j + 1 < p.Length && p[j + 1] == '*')
+        {
+            if (Match(i, j + 2)) return true;
+
+            if (firstMatch) return Match(i + 1, j);
+
+            return false;
+        }
+
+        return firstMatch && Match(i + 1, j + 1);
     }
 
-    Console.WriteLine(string.Join(", ", rules));
-
-    return false;
+    return Match(0, 0);
 }
 
 void Check(string s, string p, bool expected)
@@ -24,11 +29,17 @@ void Check(string s, string p, bool expected)
     bool res = IsMatch(s, p);
     if (res != expected)
     {
-        // throw new Exception($"Expected {expected}, got {res}");
+
+        throw new Exception($"Fail on {s} {p} | Expected {expected}, got {res}");
     }
 }
 
-Check("aa", "ab*", false);
+Check("mississippi", "mis*is*ip*.", true);
+
+Check("aa", "a", false);
 Check("aa", "a*", true);
 Check("ab", ".*", true);
+
+Check("aab", "c*a*b", true);
+
 Console.WriteLine("All tests passed.");
