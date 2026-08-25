@@ -14,7 +14,9 @@ int MyAtoi(string s)
         }
 
         // Break if c is not a digit
-        if (!char.IsNumber(c) && !((c == char.Parse("-") || c == char.Parse("+")) && !resultUpdated))
+        if (
+            !char.IsNumber(c) && !((c == char.Parse("-") || c == char.Parse("+")) && !resultUpdated)
+        )
         {
             break;
         }

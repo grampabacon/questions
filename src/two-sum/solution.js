@@ -14,7 +14,9 @@ function twoSum(nums, target) {
 
 function check(actual, expected) {
   if (JSON.stringify(actual) !== JSON.stringify(expected)) {
-    throw new Error(`Test failed: got ${JSON.stringify(actual)}, expected ${JSON.stringify(expected)}`);
+    throw new Error(
+      `Test failed: got ${JSON.stringify(actual)}, expected ${JSON.stringify(expected)}`,
+    );
   }
 }
 

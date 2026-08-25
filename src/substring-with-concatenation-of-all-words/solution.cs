@@ -5,7 +5,8 @@ using System.Linq;
 IList<int> FindSubstring(string s, string[] words)
 {
     List<int> result = [];
-    if (words.Length == 0 || s.Length == 0) return result;
+    if (words.Length == 0 || s.Length == 0)
+        return result;
 
     int wordSize = words[0].Length;
 
@@ -63,7 +64,9 @@ void Check(string s, string[] words, int[] expected)
     var actual = FindSubstring(s, words);
     if (!expected.SequenceEqual(actual))
     {
-        throw new Exception($"Expected {string.Join(", ", expected)} ~ Actual {string.Join(", ", actual)}");
+        throw new Exception(
+            $"Expected {string.Join(", ", expected)} ~ Actual {string.Join(", ", actual)}"
+        );
     }
 }
 

@@ -45,7 +45,6 @@ void Check(string s, int numRows, string expected)
     }
 }
 
-
 Check("PAYPALISHIRING", 3, "PAHNAPLSIIGYIR");
 Check("PAYPALISHIRING", 4, "PINALSIGYAHRPI");
 Check("A", 1, "A");

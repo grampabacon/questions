@@ -16,8 +16,8 @@ int ReverseInteger(int input)
     int output = 0;
     for (int i = 0; i < chars.Length; i++)
     {
-        var multiplier = (int) Math.Pow(10, i);
-        var nextDigit = (int) char.GetNumericValue(chars[i]);
+        var multiplier = (int)Math.Pow(10, i);
+        var nextDigit = (int)char.GetNumericValue(chars[i]);
         var toAdd = multiplier * nextDigit;
 
         if (int.MaxValue / multiplier < nextDigit)
@@ -32,7 +32,8 @@ int ReverseInteger(int input)
         output += toAdd;
     }
 
-    if (isNegative) output *= -1;
+    if (isNegative)
+        output *= -1;
 
     return output;
 }

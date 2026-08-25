@@ -51,15 +51,20 @@ int[][] ThreeSum(int[] nums)
 
 bool AreArraysEqual(int[][] array1, int[][] array2)
 {
-    if (ReferenceEquals(array1, array2)) return true;
-    if (array1 == null || array2 == null) return false;
+    if (ReferenceEquals(array1, array2))
+        return true;
+    if (array1 == null || array2 == null)
+        return false;
 
-    if (array1.Length != array2.Length) return false;
+    if (array1.Length != array2.Length)
+        return false;
 
     for (int i = 0; i < array1.Length; i++)
     {
-        if (array1[i] == null && array2[i] == null) continue;
-        if (array1[i] == null || array2[i] == null) return false;
+        if (array1[i] == null && array2[i] == null)
+            continue;
+        if (array1[i] == null || array2[i] == null)
+            return false;
 
         if (!array1[i].SequenceEqual(array2[i]))
         {
@@ -89,8 +94,31 @@ void Check(int[] nums, int[][] expected)
     }
 }
 
-Check([-1, 0, 1, 2, -1, -4], [[-1, -1, 2], [-1, 0, 1]]);
-Check([0, 0, 0], [[0, 0, 0]]);
-Check([-2, 0, 1, 1, 2], [[-2, 0, 2], [-2, 1, 1]]);
-Check([-100,-70,-60,110,120,130,160], [[-100,-60,160],[-70,-60,130]]);
+Check(
+    [-1, 0, 1, 2, -1, -4],
+    [
+        [-1, -1, 2],
+        [-1, 0, 1],
+    ]
+);
+Check(
+    [0, 0, 0],
+    [
+        [0, 0, 0],
+    ]
+);
+Check(
+    [-2, 0, 1, 1, 2],
+    [
+        [-2, 0, 2],
+        [-2, 1, 1],
+    ]
+);
+Check(
+    [-100, -70, -60, 110, 120, 130, 160],
+    [
+        [-100, -60, 160],
+        [-70, -60, 130],
+    ]
+);
 Console.WriteLine("All tests passed.");

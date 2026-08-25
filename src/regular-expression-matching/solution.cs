@@ -11,9 +11,11 @@ bool IsMatch(string s, string p)
 
         if (j + 1 < p.Length && p[j + 1] == '*')
         {
-            if (Match(i, j + 2)) return true;
+            if (Match(i, j + 2))
+                return true;
 
-            if (firstMatch) return Match(i + 1, j);
+            if (firstMatch)
+                return Match(i + 1, j);
 
             return false;
         }
@@ -29,7 +31,6 @@ void Check(string s, string p, bool expected)
     bool res = IsMatch(s, p);
     if (res != expected)
     {
-
         throw new Exception($"Fail on {s} {p} | Expected {expected}, got {res}");
     }
 }

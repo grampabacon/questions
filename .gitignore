@@ -1,5 +1,7 @@
 .env
 
+.tools/
+
 .idea
 out/
 !**/src/main/**/out/

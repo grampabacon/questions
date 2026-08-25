@@ -43,12 +43,16 @@ void Check(string s, string[] validSolutions)
 
     if (failed)
     {
-        throw new Exception($"Failure, expected {string.Join(", ", validSolutions)}; found {substring}");
+        throw new Exception(
+            $"Failure, expected {string.Join(", ", validSolutions)}; found {substring}"
+        );
     }
 }
 
 Check("babad", ["bab", "aba"]);
 Check("cbbd", ["bb"]);
-Check("fidfhouehfoheofhoehfoiehfioneiofndoibiaygd9qhdobwidetartratedduhaoufhdboehdoehodihpiadpiwhd083whd3d",
-    ["detartrated"]);
+Check(
+    "fidfhouehfoheofhoehfoiehfioneiofndoibiaygd9qhdobwidetartratedduhaoufhdboehdoehodihpiadpiwhd083whd3d",
+    ["detartrated"]
+);
 Console.WriteLine("All tests passed.");

@@ -1,14 +1,4 @@
-class ListNode
-{
-    public int val;
-    public ListNode next;
-
-    public ListNode(int val = 0, ListNode next = null)
-    {
-        this.val = val;
-        this.next = next;
-    }
-}
+using System;
 
 ListNode MergeKLists(ListNode[] lists)
 {
@@ -82,6 +72,7 @@ void Check(ListNode[] lists, ListNode expected)
     if (a != null || e != null)
         throw new Exception("Check failed: output lengths do not match");
 }
+
 // Example 1:
 //
 // Input: lists = [[1,4,5],[1,3,4],[2,6]]
@@ -109,25 +100,33 @@ Check(
     {
         new ListNode(1, new ListNode(4, new ListNode(5))),
         new ListNode(1, new ListNode(3, new ListNode(4))),
-        new ListNode(2, new ListNode(6))
+        new ListNode(2, new ListNode(6)),
     },
-    new ListNode(1,
-        new ListNode(1,
-            new ListNode(2,
-                new ListNode(3,
-                    new ListNode(4,
-                        new ListNode(4,
-                            new ListNode(5,
-                                new ListNode(6))))))))
+    new ListNode(
+        1,
+        new ListNode(
+            1,
+            new ListNode(
+                2,
+                new ListNode(3, new ListNode(4, new ListNode(4, new ListNode(5, new ListNode(6)))))
+            )
+        )
+    )
 );
 
-Check(
-    Array.Empty<ListNode>(),
-    null
-);
+Check(Array.Empty<ListNode>(), null);
 
-Check(
-    new[] { (ListNode)null },
-    null
-);
+Check(new[] { (ListNode)null }, null);
 Console.WriteLine("All tests passed.");
+
+class ListNode
+{
+    public int val;
+    public ListNode next;
+
+    public ListNode(int val = 0, ListNode next = null)
+    {
+        this.val = val;
+        this.next = next;
+    }
+}

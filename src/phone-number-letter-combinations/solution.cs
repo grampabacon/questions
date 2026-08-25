@@ -9,10 +9,12 @@ IList<string> LetterCombinations(string digits)
         { 6, ['m', 'n', 'o'] },
         { 7, ['p', 'q', 'r', 's'] },
         { 8, ['t', 'u', 'v'] },
-        { 9, ['w', 'x', 'y', 'z'] }
+        { 9, ['w', 'x', 'y', 'z'] },
     };
 
-    string[] output = combinations[(int)char.GetNumericValue(digits[0])].Select(c => c.ToString()).ToArray();
+    string[] output = combinations[(int)char.GetNumericValue(digits[0])]
+        .Select(c => c.ToString())
+        .ToArray();
     for (var i = 1; i < digits.Length; i++)
     {
         List<string> next = [];
@@ -41,10 +43,12 @@ void Check(string digits, string[] expected)
     var actual = LetterCombinations(digits);
     if (!actual.SequenceEqual(expected))
     {
-        throw new Exception($"Expected {string.Join(", ", expected)} ~ Actual {string.Join(", ", actual)}");
+        throw new Exception(
+            $"Expected {string.Join(", ", expected)} ~ Actual {string.Join(", ", actual)}"
+        );
     }
 }
 
-Check("23", ["ad","ae","af","bd","be","bf","cd","ce","cf"]);
+Check("23", ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]);
 Check("9", ["w", "x", "y", "z"]);
 Console.WriteLine("All tests passed.");
