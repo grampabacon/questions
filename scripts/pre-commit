@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+#
+# Installed via: ./scripts/install-hooks.sh
+
+set -uo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT" || exit 0
+
+# Only look at files that are actually staged for this commit
+STAGED=$(git diff --cached --name-only --diff-filter=ACM)
+[ -z "$STAGED" ] && exit 0
+
+format_and_restage() {
+  local pattern="$1"
+  local formatter_check="$2"
+  local format_cmd="$3"
+
+  local files
+  files=$(echo "$STAGED" | grep -E "$pattern" || true)
+  [ -z "$files" ] && return 0
+
+  if ! eval "$formatter_check" >/dev/null 2>&1; then
+    return 0  # formatter not installed — skip quietly, don't block the commit
+  fi
+
+  echo "$files" | while IFS= read -r f; do
+    [ -f "$f" ] || continue
+    eval "$format_cmd \"$f\"" >/dev/null 2>&1
+    git add "$f"
+  done
+}
+
+format_and_restage 'solution\.py$'   'command -v black'          'black -q'
+format_and_restage 'solution\.(js|ts)$' 'npx --no-install prettier --version' 'npx --no-install prettier --write'
+format_and_restage 'solution\.go$'   'command -v gofmt'          'gofmt -w'
+format_and_restage 'solution\.cs$'   'command -v csharpier' 'csharpier format'
+
+# Java uses the downloaded jar from scripts/format.sh, if present
+GJF_JAR="$REPO_ROOT/.tools/google-java-format.jar"
+if [ -f "$GJF_JAR" ]; then
+  format_and_restage 'solution\.java$' 'command -v java' "java -jar \"$GJF_JAR\" --replace"
+fi
+
+exit 0
