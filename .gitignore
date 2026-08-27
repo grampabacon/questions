@@ -1,6 +1,7 @@
 .env
 
 .tools/
+obj/
 
 .idea
 out/
