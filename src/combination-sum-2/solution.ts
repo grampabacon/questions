@@ -1,6 +1,8 @@
 function combinationSum(candidates: number[], target: number): number[][] {
   let output: number[][] = [];
 
+  candidates.sort((a, b) => a - b);
+
   function findCandidate(
     start: number,
     remaining: number,
@@ -15,10 +17,15 @@ function combinationSum(candidates: number[], target: number): number[][] {
     }
 
     for (let i = start; i < candidates.length; i++) {
+      if (i > start && candidates[i] === candidates[i - 1]) {
+        continue;
+      }
+
       let c = candidates[i];
+
       result.push(c);
 
-      findCandidate(i, remaining - c, result);
+      findCandidate(i + 1, remaining - c, result);
 
       result.pop();
     }
@@ -42,11 +49,11 @@ function check(
   }
 }
 
-check([2, 3, 6, 7], 7, [[2, 2, 3], [7]]);
-check([2, 3, 5], 8, [
-  [2, 2, 2, 2],
-  [2, 3, 3],
-  [3, 5],
+check([10, 1, 2, 7, 6, 1, 5], 8, [
+  [1, 1, 6],
+  [1, 2, 5],
+  [1, 7],
+  [2, 6],
 ]);
-check([2], 1, []);
+check([2, 5, 2, 1, 2], 5, [[1, 2, 2], [5]]);
 console.log("All tests passed.");
