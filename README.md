@@ -18,6 +18,7 @@ Legend: 🐍 Python · 🟨 JavaScript · 🔷 TypeScript · 🐹 Go · 🟪 C# 
 | [Combination Sum](src/combination-sum) | — | — | 🔷 |
 | [Combination Sum II](src/combination-sum-2) | — | — | 🔷 |
 | [Count and Say](src/count-and-say) | — | — | 🟪 |
+| [First Missing Positive](src/first-missing-positive) | — | — | 🟪 |
 | [Letter Combinations of a Phone Number](src/phone-number-letter-combinations) | — | — | 🟪 |
 | [Longest Palindromic Substring](src/longest-palindromic-substring) | — | — | 🐹 🟪 |
 | [Median Of Two Sorted Arrays](src/median-of-two-sorted-arrays) | — | — | 🟪 |
