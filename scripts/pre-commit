@@ -7,9 +7,13 @@ set -uo pipefail
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "$REPO_ROOT" || exit 0
 
-# Only look at files that are actually staged for this commit
+# Only look at files that are actually staged for this commit.
+# STAGED (added/copied/modified) feeds the formatters below — a deleted
+# file can't be formatted. STAGED_ALL also includes deletions, since those
+# matter for the README Progress table (e.g. a solution file removed).
 STAGED=$(git diff --cached --name-only --diff-filter=ACM)
-[ -z "$STAGED" ] && exit 0
+STAGED_ALL=$(git diff --cached --name-only)
+[ -z "$STAGED_ALL" ] && exit 0
 
 format_and_restage() {
   local pattern="$1"
@@ -40,6 +44,13 @@ format_and_restage 'solution\.cs$'   'command -v csharpier' 'csharpier format'
 GJF_JAR="$REPO_ROOT/.tools/google-java-format.jar"
 if [ -f "$GJF_JAR" ]; then
   format_and_restage 'solution\.java$' 'command -v java' "java -jar \"$GJF_JAR\" --replace"
+fi
+
+# Regenerate the README Progress table whenever a problem folder changed
+if echo "$STAGED_ALL" | grep -qE '^src/'; then
+  if command -v python3 >/dev/null 2>&1; then
+    python3 "$REPO_ROOT/scripts/update-readme-table.py" >/dev/null 2>&1 && git add README.md
+  fi
 fi
 
 exit 0

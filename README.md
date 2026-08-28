@@ -6,6 +6,32 @@ Goals of this repo:
 - Stay sharp on core algorithm/data-structure patterns
 - Compare idioms across languages
 
+## Progress
+
+<!-- progress:start -->
+Legend: 🐍 Python · 🟨 JavaScript · 🔷 TypeScript · 🐹 Go · 🟪 C# · ☕ Java
+
+| Problem | Topic | Difficulty | Solutions |
+| --- | --- | --- | --- |
+| [3Sum](src/3sum) | — | — | 🔷 🟪 |
+| [Champernowne's Constant](src/champernownes-constant) | — | — | 🟪 |
+| [Combination Sum](src/combination-sum) | — | — | 🔷 |
+| [Combination Sum II](src/combination-sum-2) | — | — | 🔷 |
+| [Count and Say](src/count-and-say) | — | — | 🟪 |
+| [Letter Combinations of a Phone Number](src/phone-number-letter-combinations) | — | — | 🟪 |
+| [Longest Palindromic Substring](src/longest-palindromic-substring) | — | — | 🐹 🟪 |
+| [Median Of Two Sorted Arrays](src/median-of-two-sorted-arrays) | — | — | 🟪 |
+| [Merge k Sorted Lists](src/merge-k-sorted-lists) | — | — | 🟪 |
+| [Regular Expression Matching](src/regular-expression-matching) | — | — | 🟪 |
+| [Reverse Integer](src/reverse-integer) | — | — | 🟪 |
+| [String to Integer (atoi)](src/string-to-integer) | — | — | 🟪 |
+| [Substring with Concatenation of All Words](src/substring-with-concatenation-of-all-words) | — | — | 🟪 |
+| [Sudoku Solver](src/sudoku-solver) | — | — | 🔷 |
+| [Two Sum](src/two-sum) | — | — | 🐍 🟨 🔷 🐹 🟪 |
+| [Valid Anagram](src/valid-anagram) | — | — | 🐍 🟪 ☕ |
+| [ZigZag Conversion](src/zigzag-conversion) | — | — | 🟪 |
+<!-- progress:end -->
+
 ## Testing locally
 
 Two scripts, both skip a language automatically if you don't have that toolchain installed:
