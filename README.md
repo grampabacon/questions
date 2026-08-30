@@ -28,6 +28,7 @@ Legend: 🐍 Python · 🟨 JavaScript · 🔷 TypeScript · 🐹 Go · 🟪 C# 
 | [String to Integer (atoi)](src/string-to-integer) | — | — | 🟪 |
 | [Substring with Concatenation of All Words](src/substring-with-concatenation-of-all-words) | — | — | 🟪 |
 | [Sudoku Solver](src/sudoku-solver) | — | — | 🔷 |
+| [Trapping Rain Water](src/trapping-rain-water) | — | — | 🔷 🟪 |
 | [Two Sum](src/two-sum) | — | — | 🐍 🟨 🔷 🐹 🟪 |
 | [Valid Anagram](src/valid-anagram) | — | — | 🐍 🟪 ☕ |
 | [ZigZag Conversion](src/zigzag-conversion) | — | — | 🟪 |
