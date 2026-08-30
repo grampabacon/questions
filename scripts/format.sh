@@ -96,6 +96,18 @@ else
   [ -n "$(find . -name 'solution.java')" ] && echo "(skipping Java — java not found)"
 fi
 
+# --- Kotlin: ktlint ---
+if command -v ktlint >/dev/null 2>&1; then
+  FILES=$(find . -name "solution.kt")
+  if [ -n "$FILES" ]; then
+    echo ">> Formatting Kotlin (ktlint)"
+    echo "$FILES" | xargs ktlint -F
+    RAN_ANY=1
+  fi
+else
+  [ -n "$(find . -name 'solution.kt')" ] && echo "(skipping Kotlin — ktlint not found; install with: brew install ktlint)"
+fi
+
 echo ""
 if [ "$RAN_ANY" -eq 1 ]; then
   echo "Formatting complete."

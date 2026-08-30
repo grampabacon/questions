@@ -52,6 +52,22 @@ run_one() {
   fi
 }
 
+# kotlin(1) only runs .jar/.kts/qualified-class targets, not a plain .kt
+# file — compile it to a throwaway jar with kotlinc, run that, clean up.
+run_kotlin() {
+  local file="$1"
+  local jar
+  jar="$(mktemp -t kotlin-solution).jar"
+  if kotlinc "$file" -include-runtime -d "$jar" 2>/dev/null; then
+    java -jar "$jar"
+    local status=$?
+    rm -f "$jar"
+    return $status
+  fi
+  rm -f "$jar"
+  return 1
+}
+
 if command -v python3 >/dev/null 2>&1; then
   run_one "Python" "python3" "$TARGET/solution.py"
 else
@@ -86,6 +102,12 @@ if command -v java >/dev/null 2>&1; then
   run_one "Java" "java" "$TARGET/solution.java"
 else
   [ -f "$TARGET/solution.java" ] && echo "(skipping Java — java not found)"
+fi
+
+if command -v kotlinc >/dev/null 2>&1; then
+  run_one "Kotlin" "run_kotlin" "$TARGET/solution.kt"
+else
+  [ -f "$TARGET/solution.kt" ] && echo "(skipping Kotlin — kotlinc not found)"
 fi
 
 echo ""

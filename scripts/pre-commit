@@ -46,6 +46,8 @@ if [ -f "$GJF_JAR" ]; then
   format_and_restage 'solution\.java$' 'command -v java' "java -jar \"$GJF_JAR\" --replace"
 fi
 
+format_and_restage 'solution\.kt$'   'command -v ktlint'         'ktlint -F'
+
 # Regenerate the README Progress table whenever a problem folder changed
 if echo "$STAGED_ALL" | grep -qE '^src/'; then
   if command -v python3 >/dev/null 2>&1; then

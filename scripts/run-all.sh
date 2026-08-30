@@ -14,6 +14,22 @@ cd "$REPO_ROOT"
 FAIL=0
 COUNT=0
 
+# kotlin(1) only runs .jar/.kts/qualified-class targets, not a plain .kt
+# file — compile it to a throwaway jar with kotlinc, run that, clean up.
+run_kotlin() {
+  local file="$1"
+  local jar
+  jar="$(mktemp -t kotlin-solution).jar"
+  if kotlinc "$file" -include-runtime -d "$jar" 2>/dev/null; then
+    java -jar "$jar"
+    local status=$?
+    rm -f "$jar"
+    return $status
+  fi
+  rm -f "$jar"
+  return 1
+}
+
 run_group() {
   local label="$1"
   local filename="$2"
@@ -51,6 +67,7 @@ run_group "TypeScript" "solution.ts"   "tsx"           "tsx"
 run_group "Go"         "solution.go"   "go run"        "go"
 run_group "C#"         "solution.cs"   "dotnet-script" "dotnet-script"
 run_group "Java"       "solution.java" "java"          "java"
+run_group "Kotlin"     "solution.kt"   "run_kotlin"    "kotlinc"
 
 echo ""
 echo "===================================="

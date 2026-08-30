@@ -87,3 +87,22 @@ jobs:
             echo "Running $f"
             java "$f"
           done
+
+  kotlin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v5
+        with:
+          distribution: "temurin"
+          java-version: "25"
+      - uses: fwilhe2/setup-kotlin@v2
+      - name: Run all Kotlin solutions
+        run: |
+          find . -name "solution.kt" | while read -r f; do
+            echo "Running $f"
+            jar="$(mktemp -t kotlin-solution).jar"
+            kotlinc "$f" -include-runtime -d "$jar"
+            java -jar "$jar"
+            rm -f "$jar"
+          done
