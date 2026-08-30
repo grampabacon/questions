@@ -1,5 +1,7 @@
 package `trapping-rain-water`
 
+import java.lang.IO.println
+
 fun trap(height: IntArray): Int {
     var left = 0
     var right = height.size - 1

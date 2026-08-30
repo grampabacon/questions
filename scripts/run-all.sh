@@ -19,7 +19,7 @@ COUNT=0
 run_kotlin() {
   local file="$1"
   local jar
-  jar="$(mktemp -t kotlin-solution).jar"
+  jar="$(mktemp -t kotlin-solution-XXXXXX).jar"
   if kotlinc "$file" -include-runtime -d "$jar" 2>/dev/null; then
     java -jar "$jar"
     local status=$?

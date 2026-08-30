@@ -101,7 +101,7 @@ jobs:
         run: |
           find . -name "solution.kt" | while read -r f; do
             echo "Running $f"
-            jar="$(mktemp -t kotlin-solution).jar"
+            jar="$(mktemp -t kotlin-solution-XXXXXX).jar"
             kotlinc "$f" -include-runtime -d "$jar"
             java -jar "$jar"
             rm -f "$jar"
