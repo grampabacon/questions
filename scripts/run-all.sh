@@ -68,6 +68,7 @@ run_group "Go"         "solution.go"   "go run"        "go"
 run_group "C#"         "solution.cs"   "dotnet-script" "dotnet-script"
 run_group "Java"       "solution.java" "java"          "java"
 run_group "Kotlin"     "solution.kt"   "run_kotlin"    "kotlinc"
+run_group "Ruby"       "solution.rb"   "ruby"          "ruby"
 
 echo ""
 echo "===================================="

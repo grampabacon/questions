@@ -47,6 +47,7 @@ if [ -f "$GJF_JAR" ]; then
 fi
 
 format_and_restage 'solution\.kt$'   'command -v ktlint'         'ktlint -F'
+format_and_restage 'solution\.rb$'   'command -v rubocop'        'rubocop -A'
 
 # Regenerate the README Progress table whenever a problem folder changed
 if echo "$STAGED_ALL" | grep -qE '^src/'; then

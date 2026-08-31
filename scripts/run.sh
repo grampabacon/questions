@@ -110,6 +110,12 @@ else
   [ -f "$TARGET/solution.kt" ] && echo "(skipping Kotlin — kotlinc not found)"
 fi
 
+if command -v ruby >/dev/null 2>&1; then
+  run_one "Ruby" "ruby" "$TARGET/solution.rb"
+else
+  [ -f "$TARGET/solution.rb" ] && echo "(skipping Ruby — ruby not found)"
+fi
+
 echo ""
 echo "----------------------------------------"
 if [ "$RAN_ANY" -eq 0 ]; then

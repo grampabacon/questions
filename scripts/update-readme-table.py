@@ -29,6 +29,7 @@ LANGUAGES = [
     ("cs", "🟪", "C#"),
     ("java", "☕", "Java"),
     ("kt", "🟠", "Kotlin"),
+    ("rb", "💎", "Ruby"),
 ]
 
 START_MARKER = "<!-- progress:start -->"

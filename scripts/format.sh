@@ -108,6 +108,18 @@ else
   [ -n "$(find . -name 'solution.kt')" ] && echo "(skipping Kotlin — ktlint not found; install with: brew install ktlint)"
 fi
 
+# --- Ruby: rubocop ---
+if command -v rubocop >/dev/null 2>&1; then
+  FILES=$(find . -name "solution.rb")
+  if [ -n "$FILES" ]; then
+    echo ">> Formatting Ruby (rubocop)"
+    echo "$FILES" | xargs rubocop -A
+    RAN_ANY=1
+  fi
+else
+  [ -n "$(find . -name 'solution.rb')" ] && echo "(skipping Ruby — rubocop not found; install with: gem install rubocop)"
+fi
+
 echo ""
 if [ "$RAN_ANY" -eq 1 ]; then
   echo "Formatting complete."
