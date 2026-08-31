@@ -23,6 +23,7 @@ Legend: 🐍 Python · 🟨 JavaScript · 🔷 TypeScript · 🐹 Go · 🟪 C# 
 | [Longest Palindromic Substring](src/longest-palindromic-substring) | — | — | 🐹 🟪 |
 | [Median Of Two Sorted Arrays](src/median-of-two-sorted-arrays) | — | — | 🟪 |
 | [Merge k Sorted Lists](src/merge-k-sorted-lists) | — | — | 🟪 |
+| [Multiply Strings](src/multiply-strings) | — | — | 🟪 |
 | [Regular Expression Matching](src/regular-expression-matching) | — | — | 🟪 |
 | [Reverse Integer](src/reverse-integer) | — | — | 🟪 |
 | [String to Integer (atoi)](src/string-to-integer) | — | — | 🟪 |
