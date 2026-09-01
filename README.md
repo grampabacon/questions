@@ -19,6 +19,7 @@ Legend: 🐍 Python · 🟨 JavaScript · 🔷 TypeScript · 🐹 Go · 🟪 C# 
 | [Combination Sum II](src/combination-sum-2) | — | — | 🔷 |
 | [Count and Say](src/count-and-say) | — | — | 🟪 |
 | [First Missing Positive](src/first-missing-positive) | — | — | 🟪 |
+| [Jump Game II](src/jump-game-2) | — | — | 🟠 |
 | [Letter Combinations of a Phone Number](src/phone-number-letter-combinations) | — | — | 🟪 |
 | [Longest Palindromic Substring](src/longest-palindromic-substring) | — | — | 🐹 🟪 |
 | [Median Of Two Sorted Arrays](src/median-of-two-sorted-arrays) | — | — | 🟪 |
@@ -37,7 +38,7 @@ Legend: 🐍 Python · 🟨 JavaScript · 🔷 TypeScript · 🐹 Go · 🟪 C# 
 
 ## Testing locally
 
-Two scripts, both skip a language automatically if you don't have that toolchain installed:
+Three scripts, all skip a language automatically if you don't have that toolchain installed:
 
 ```bash
 # Run every solution for one problem
@@ -45,6 +46,9 @@ Two scripts, both skip a language automatically if you don't have that toolchain
 
 # Run every solution in the whole repo
 ./scripts/run-all.sh
+
+# Run one specific solution file
+./scripts/run-file.sh two-sum/solution.py
 ```
 
 ## How each problem is organized
