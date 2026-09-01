@@ -19,10 +19,17 @@ fun jump(nums: IntArray): Int {
     return jumps
 }
 
+fun check(nums: IntArray, expected: Int) {
+    val result = jump(nums)
+    if (result != expected) {
+        throw RuntimeException("Expected $expected ~ Actual $result")
+    }
+}
+
 fun main() {
-//    println(jump(intArrayOf(2, 3, 1, 1, 4)))
-//    println(jump(intArrayOf(2, 3, 0, 1, 4)))
-//    println(jump(intArrayOf(1, 3, 2)))
-//    println(jump(intArrayOf(1, 2, 0, 1)))
-    println(jump(intArrayOf(1, 1, 1, 1)))
+    check(intArrayOf(1, 1, 1, 1), 3)
+    check(intArrayOf(2, 3, 1, 1, 4), 2)
+    check(intArrayOf(2, 3, 0, 1, 4), 2)
+    check(intArrayOf(1, 3, 2), 2)
+    check(intArrayOf(1, 2, 0, 1), 2)
 }
