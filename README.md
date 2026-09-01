@@ -28,6 +28,7 @@ Legend: 🐍 Python · 🟨 JavaScript · 🔷 TypeScript · 🐹 Go · 🟪 C# 
 | [Multiply Strings](src/multiply-strings) | — | — | 🟪 |
 | [Regular Expression Matching](src/regular-expression-matching) | — | — | 🟪 |
 | [Reverse Integer](src/reverse-integer) | — | — | 🟪 |
+| [Spiral Matrix](src/spiral-matrix) | — | — | 🔷 🟪 |
 | [String to Integer (atoi)](src/string-to-integer) | — | — | 🟪 |
 | [Substring with Concatenation of All Words](src/substring-with-concatenation-of-all-words) | — | — | 🟪 |
 | [Sudoku Solver](src/sudoku-solver) | — | — | 🔷 |
