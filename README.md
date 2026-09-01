@@ -19,6 +19,7 @@ Legend: 🐍 Python · 🟨 JavaScript · 🔷 TypeScript · 🐹 Go · 🟪 C# 
 | [Combination Sum II](src/combination-sum-2) | — | — | 🔷 |
 | [Count and Say](src/count-and-say) | — | — | 🟪 |
 | [First Missing Positive](src/first-missing-positive) | — | — | 🟪 |
+| [Jump Game](src/jump-game-1) | — | — | 🟠 |
 | [Jump Game II](src/jump-game-2) | — | — | 🟠 |
 | [Letter Combinations of a Phone Number](src/phone-number-letter-combinations) | — | — | 🟪 |
 | [Longest Palindromic Substring](src/longest-palindromic-substring) | — | — | 🐹 🟪 |

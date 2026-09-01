@@ -1,7 +1,7 @@
-package `jump-game-2`
+package `jump-game-1`
 
-fun jump(nums: IntArray): Int {
-    if (nums.size <= 1) return 0
+fun canJump(nums: IntArray): Boolean {
+    if (nums.size <= 1) return true
 
     var jumps = 0
     var currentEnd = 0
@@ -11,26 +11,26 @@ fun jump(nums: IntArray): Int {
         furthest = maxOf(furthest, i + nums[i])
 
         if (i == currentEnd) {
+            if (currentEnd == furthest) return false
+
             jumps++
             currentEnd = furthest
         }
     }
 
-    return jumps
+    return true
 }
 
-fun check(nums: IntArray, expected: Int) {
-    val result = jump(nums)
+fun check(nums: IntArray, expected: Boolean) {
+    val result = canJump(nums)
     if (result != expected) {
         throw RuntimeException("Expected $expected ~ Actual $result")
     }
 }
 
 fun main() {
-    check(intArrayOf(1, 1, 1, 1), 3)
-    check(intArrayOf(2, 3, 1, 1, 4), 2)
-    check(intArrayOf(2, 3, 0, 1, 4), 2)
-    check(intArrayOf(1, 3, 2), 2)
-    check(intArrayOf(1, 2, 0, 1), 2)
+    check(intArrayOf(1, 1, 1, 1), true)
+    check(intArrayOf(2, 3, 1, 1, 4), true)
+    check(intArrayOf(3,2,1,0,4), false)
     println("All tests passed.")
 }
