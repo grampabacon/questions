@@ -26,6 +26,7 @@ Legend: 🐍 Python · 🟨 JavaScript · 🔷 TypeScript · 🐹 Go · 🟪 C# 
 | [Median Of Two Sorted Arrays](src/median-of-two-sorted-arrays) | — | — | 🟪 |
 | [Merge k Sorted Lists](src/merge-k-sorted-lists) | — | — | 🟪 |
 | [Multiply Strings](src/multiply-strings) | — | — | 🟪 |
+| [Pow(x, n)](src/pow) | — | — | 🟪 |
 | [Regular Expression Matching](src/regular-expression-matching) | — | — | 🟪 |
 | [Reverse Integer](src/reverse-integer) | — | — | 🟪 |
 | [Spiral Matrix](src/spiral-matrix) | — | — | 🔷 🟪 |
