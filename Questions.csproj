@@ -17,4 +17,8 @@
     <Compile Include="./**/solution.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="src\permutations\" />
+  </ItemGroup>
+
 </Project>
