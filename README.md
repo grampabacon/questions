@@ -31,6 +31,7 @@ Legend: 🐍 Python · 🟨 JavaScript · 🔷 TypeScript · 🐹 Go · 🟪 C# 
 | [Pow(x, n)](src/pow) | — | — | 🟪 |
 | [Regular Expression Matching](src/regular-expression-matching) | — | — | 🟪 |
 | [Reverse Integer](src/reverse-integer) | — | — | 🟪 |
+| [Rotate Image](src/rotate-image) | — | — | 🟪 |
 | [Spiral Matrix](src/spiral-matrix) | — | — | 🔷 🟪 |
 | [String to Integer (atoi)](src/string-to-integer) | — | — | 🟪 |
 | [Substring with Concatenation of All Words](src/substring-with-concatenation-of-all-words) | — | — | 🟪 |
