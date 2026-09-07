@@ -1,45 +1,39 @@
 IList<IList<string>> GroupAnagrams(string[] strs)
 {
-    if (strs.Length == 0)
-        return [];
+    Dictionary<string, IList<string>> groups = new();
 
-    List<IList<string>> result = [];
-    for (var i = 0; i < strs.Length; )
+    foreach (var str in strs)
     {
-        List<string> temp = [];
-        for (var j = i; j < strs.Length; j++)
+        // All anagrams produce the same key
+        var key = new string(str.OrderBy(c => c).ToArray());
+
+        if (!groups.TryGetValue(key, out var group))
         {
-            var found = strs[j];
-            if (ValidAnagram(strs[i], found))
-            {
-                strs[j] = strs[i + temp.Count]; // Swap matched to start of array
-                strs[i + temp.Count] = found;
-                temp.Add(found);
-            }
+            group = [];
+            groups[key] = group;
         }
 
-        result.Add(temp);
-        i += temp.Count;
+        group.Add(str);
     }
 
-    return result;
+    return groups.Values.ToList();
 }
 
-bool ValidAnagram(string s, string t)
-{
-    if (s.Length != t.Length)
-        return false;
-
-    int[] counts = new int[26];
-
-    foreach (var c in s)
-        counts[c - 'a']++;
-
-    foreach (var c in t)
-        counts[c - 'a']--;
-
-    return counts.All(x => x == 0);
-}
+// bool ValidAnagram(string s, string t)
+// {
+//     if (s.Length != t.Length)
+//         return false;
+//
+//     int[] counts = new int[26];
+//
+//     foreach (var c in s)
+//         counts[c - 'a']++;
+//
+//     foreach (var c in t)
+//         counts[c - 'a']--;
+//
+//     return counts.All(x => x == 0);
+// }
 
 bool DeepEqualsUnordered(IList<IList<string>> a, IList<IList<string>> b)
 {
