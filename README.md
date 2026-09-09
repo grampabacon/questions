@@ -28,6 +28,7 @@ Legend: 🐍 Python · 🟨 JavaScript · 🔷 TypeScript · 🐹 Go · 🟪 C# 
 | [Merge k Sorted Lists](src/merge-k-sorted-lists) | — | — | 🟪 |
 | [Multiply Strings](src/multiply-strings) | — | — | 🟪 |
 | [N-Queens](src/n-queens) | — | — | 🐍 |
+| [N-Queens II](src/n-queens-2) | — | — | 🟪 |
 | [Permuations](src/permutations) | — | — | 🔷 |
 | [Permutations II](src/permutations-2) | — | — | 🔷 |
 | [Pow(x, n)](src/pow) | — | — | 🟪 |
