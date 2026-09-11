@@ -25,6 +25,7 @@ Legend: 🐍 Python · 🟨 JavaScript · 🔷 TypeScript · 🐹 Go · 🟪 C# 
 | [Letter Combinations of a Phone Number](src/phone-number-letter-combinations) | — | — | 🟪 |
 | [Longest Palindromic Substring](src/longest-palindromic-substring) | — | — | 🐹 🟪 |
 | [Median Of Two Sorted Arrays](src/median-of-two-sorted-arrays) | — | — | 🟪 |
+| [Merge Intervals](src/merge-intervals) | — | — | 🟪 |
 | [Merge k Sorted Lists](src/merge-k-sorted-lists) | — | — | 🟪 |
 | [Multiply Strings](src/multiply-strings) | — | — | 🟪 |
 | [N-Queens](src/n-queens) | — | — | 🐍 |
