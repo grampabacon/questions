@@ -22,6 +22,7 @@ Legend: 🐍 Python · 🟨 JavaScript · 🔷 TypeScript · 🐹 Go · 🟪 C# 
 | [Group Anagrams](src/group-anagrams) | — | — | 🟪 |
 | [Jump Game](src/jump-game-1) | — | — | 🟠 |
 | [Jump Game II](src/jump-game-2) | — | — | 🟠 |
+| [Length of Last Word](src/length-of-last-word) | — | — | 🟪 |
 | [Letter Combinations of a Phone Number](src/phone-number-letter-combinations) | — | — | 🟪 |
 | [Longest Palindromic Substring](src/longest-palindromic-substring) | — | — | 🐹 🟪 |
 | [Median Of Two Sorted Arrays](src/median-of-two-sorted-arrays) | — | — | 🟪 |
